@@ -26,7 +26,7 @@ app.rbからルーティング機能(route.rb等)、コントローラー、ビ�
 
 > `route.rb`の`get`メソッドは`route_helper.rb`に記載。
 
->　 `users_controller.rb`の`new`メソッドが呼び出している`render`は`controller_helper.rb`に記載。
+> `users_controller.rb`の`new`メソッドが呼び出している`render`は`controller_helper.rb`に記載。
 
 > `users`クラスは`model/users.rb`に記載。※`users`クラスを`users_controller`クラスは別物。
 
