@@ -8,7 +8,7 @@ csv, sockets通信を用いて、リクエストがあったユーザーのname,
 
 ## 2.MVC型に変更
 
-app.rbからルーティング機能(route.rb等)、コントローラー、ビュー機能(controller, view)を切り離す。
+app.rbからルーティング機能(route.rb等)、コントローラー、ビュー機能(controller, model, view)を切り離す。
 
 例)
 リクエストが
@@ -17,10 +17,20 @@ app.rbからルーティング機能(route.rb等)、コントローラー、ビ�
 
 の場合、流れは以下となる。
 
-- app.rbがリクエスト`/users/new`を受け取る。
-- リクエストに対して、route.rbの記載`get '/users/new',     to: 'users#new'`に従い、`users_controller`の`new`メソッドが実行される。
-- `new`メソッドの`render "new"`により、app.rbにviews/users/new.htmlの内容が返却される。
-- app.rbからリクエスト先に対して、HTMLを返却する。
+- `app.rb`がリクエスト`/users/new`を受け取る。
+- リクエストに対して、`route.rb`の`get '/users/new',     to: 'users#new'`に従い、`users_controller`の`new`メソッドが実行される。
+- `new`メソッドの`render "new"`により、`app.rb`に`views/users/new.html`の内容が返却される。
+- `app.rb`からリクエスト先に対して、HTMLを返却する。
+
+### 補足
+
+> `route.rb`の`get`メソッドは`route_helper.rb`に記載。
+
+>　 `users_controller.rb`の`new`メソッドが呼び出している`render`は`controller_helper.rb`に記載。
+
+> `users`クラスは`model/users.rb`に記載。※`users`クラスを`users_controller`クラスは別物。
+
+> コントローラーを増やす際は、`controller_list.rb`に記載しないと動作しない。
 
 ## 3.Active Recordの使用
 
