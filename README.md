@@ -19,7 +19,8 @@ app.rbからルーティング機能(route.rb等)、コントローラー、ビ�
 
 - app.rbがリクエスト`/users/new`を受け取る。
 - リクエストに対して、route.rbの記載`get '/users/new',     to: 'users#new'`に従い、`users_controller`の`new`メソッドが実行される。
-- 
+- `new`メソッドの`render "new"`により、app.rbにviews/users/new.htmlの内容が返却される。
+- app.rbからリクエスト先に対して、HTMLを返却する。
 
 ## 3.Active Recordの使用
 
