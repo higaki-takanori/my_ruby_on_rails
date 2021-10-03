@@ -17,8 +17,9 @@ app.rbからルーティング機能(route.rb等)、コントローラー、ビ�
 
 の場合、流れは以下となる。
 
-- app.rbがリクエストを受け取る。
-- リクエストからroute.rbの記載に従い、actionにルーティングの記載がある場合は、対応するコントローラー
+- app.rbがリクエスト`/users/new`を受け取る。
+- リクエストに対して、route.rbの記載`get '/users/new',     to: 'users#new'`に従い、`users_controller`の`new`メソッドが実行される。
+- 
 
 ## 3.Active Recordの使用
 
